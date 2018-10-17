@@ -1,0 +1,21 @@
+extends layout.pug
+
+block content
+    table
+        tr
+            th ID
+            th Name
+            th Email
+            th Age
+            th Address
+        each user in users
+            tr
+                td=user.id
+                td=user.name
+                td=user.email
+                td=user.age
+                td=user.address
+                td: form(method='get' action=`updateUsers/` + user.id)
+                    input(type='submit',value='Edit')
+                td: form(method='post' action=`deleteUsers/` + user.id)
+                    input(type='submit',value='Delete')
